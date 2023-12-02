@@ -28,24 +28,24 @@ export declare const HistorySchema: mongoose.Schema<any, mongoose.Model<any, any
     city: string;
     state: string;
     country: string;
-    type: string;
     userId: string;
+    type: string;
     createdAt?: Date;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     address: string;
     city: string;
     state: string;
     country: string;
-    type: string;
     userId: string;
+    type: string;
     createdAt?: Date;
 }>> & mongoose.FlatRecord<{
     address: string;
     city: string;
     state: string;
     country: string;
-    type: string;
     userId: string;
+    type: string;
     createdAt?: Date;
 }> & {
     _id: mongoose.Types.ObjectId;
