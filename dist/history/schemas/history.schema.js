@@ -4,8 +4,9 @@ exports.HistorySchema = void 0;
 const mongoose = require("mongoose");
 exports.HistorySchema = new mongoose.Schema({
     userId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
+        ref: "User"
     },
     type: {
         type: String,

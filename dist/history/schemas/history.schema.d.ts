@@ -28,7 +28,7 @@ export declare const HistorySchema: mongoose.Schema<any, mongoose.Model<any, any
     city: string;
     state: string;
     country: string;
-    userId: string;
+    userId: mongoose.Types.ObjectId;
     type: string;
     createdAt?: Date;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
@@ -36,7 +36,7 @@ export declare const HistorySchema: mongoose.Schema<any, mongoose.Model<any, any
     city: string;
     state: string;
     country: string;
-    userId: string;
+    userId: mongoose.Types.ObjectId;
     type: string;
     createdAt?: Date;
 }>> & mongoose.FlatRecord<{
@@ -44,7 +44,7 @@ export declare const HistorySchema: mongoose.Schema<any, mongoose.Model<any, any
     city: string;
     state: string;
     country: string;
-    userId: string;
+    userId: mongoose.Types.ObjectId;
     type: string;
     createdAt?: Date;
 }> & {
