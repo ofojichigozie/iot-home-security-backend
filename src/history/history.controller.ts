@@ -6,7 +6,7 @@ import { History } from './interfaces/history.interface';
 export class HistoryController {
   constructor(private readonly historyService: HistoryService) {}
 
-  @Get(':userId')
+  @Get('users/:userId')
   async getUserHistories(@Param('userId') userId: string): Promise<History[]> {
     return this.historyService.getUserHistories(userId);
   }
