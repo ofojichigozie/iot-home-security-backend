@@ -25,13 +25,13 @@ let HistoryService = class HistoryService {
         return await newHistory.save();
     }
     async getUserHistories(userId) {
-        return await this.HistoryModel.find({ userId });
+        return await this.HistoryModel.find({ user: userId });
     }
     async getHistory(alertHistoryId) {
-        return await this.HistoryModel.findById(alertHistoryId);
+        return await this.HistoryModel.findById(alertHistoryId).populate("user");
     }
     async deleteUserHistories(userId) {
-        return await this.HistoryModel.deleteMany({ userId });
+        return await this.HistoryModel.deleteMany({ user: userId });
     }
     async deleteHistory(alertHistoryId) {
         return await this.HistoryModel.findByIdAndDelete(alertHistoryId);

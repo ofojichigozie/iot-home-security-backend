@@ -24,28 +24,28 @@
 /// <reference types="mongoose/types/inferschematype" />
 import * as mongoose from 'mongoose';
 export declare const HistorySchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
+    user: mongoose.Types.ObjectId;
+    type: string;
     address: string;
     city: string;
     state: string;
     country: string;
-    userId: mongoose.Types.ObjectId;
-    type: string;
     createdAt?: Date;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
+    user: mongoose.Types.ObjectId;
+    type: string;
     address: string;
     city: string;
     state: string;
     country: string;
-    userId: mongoose.Types.ObjectId;
-    type: string;
     createdAt?: Date;
 }>> & mongoose.FlatRecord<{
+    user: mongoose.Types.ObjectId;
+    type: string;
     address: string;
     city: string;
     state: string;
     country: string;
-    userId: mongoose.Types.ObjectId;
-    type: string;
     createdAt?: Date;
 }> & {
     _id: mongoose.Types.ObjectId;

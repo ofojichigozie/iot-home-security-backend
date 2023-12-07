@@ -35,7 +35,7 @@ export class SecurityService {
     await this.userService.changeSecurityStatus(user._id, 'TENSED');
 
     const history = {
-      userId: user._id,
+      user: user._id,
       type: 'alert',
       address: user.address,
       city: user.city,

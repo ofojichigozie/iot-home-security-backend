@@ -28,7 +28,7 @@ let SecurityService = class SecurityService {
         const neighbours = await this.userService.findNeighbours(user._id, user.city, user.state, user.country);
         await this.userService.changeSecurityStatus(user._id, 'TENSED');
         const history = {
-            userId: user._id,
+            user: user._id,
             type: 'alert',
             address: user.address,
             city: user.city,

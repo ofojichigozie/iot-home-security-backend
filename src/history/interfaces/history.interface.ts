@@ -1,6 +1,6 @@
 export interface History {
   id?: string;
-  userId: string;
+  user: string;
   type: string;
   address: string;
   city: string;

@@ -16,15 +16,15 @@ export class HistoryService {
   }
 
   async getUserHistories(userId: string): Promise<History[]> {
-    return await this.HistoryModel.find({ userId });
+    return await this.HistoryModel.find({ user: userId });
   }
 
   async getHistory(alertHistoryId: string): Promise<History> {
-    return await this.HistoryModel.findById(alertHistoryId);
+    return await this.HistoryModel.findById(alertHistoryId).populate("user");
   }
 
   async deleteUserHistories(userId: string): Promise<any> {
-    return await this.HistoryModel.deleteMany({ userId });
+    return await this.HistoryModel.deleteMany({ user: userId });
   }
 
   async deleteHistory(alertHistoryId: string): Promise<any> {
