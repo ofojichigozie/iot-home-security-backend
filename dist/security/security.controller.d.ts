@@ -3,6 +3,8 @@ import { TriggerAlertDto } from './dto/trigger-alert.dto';
 export declare class SecurityController {
     private readonly securityService;
     constructor(securityService: SecurityService);
-    triggerAlert(triggerAlertDto: TriggerAlertDto): Promise<void>;
+    triggerAlert(triggerAlertDto: TriggerAlertDto): Promise<{
+        message: string;
+    }>;
     checkAlerts(UUC: string): Promise<import("../user/interfaces/user.interface").User>;
 }

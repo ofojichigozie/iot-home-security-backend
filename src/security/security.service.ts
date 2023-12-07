@@ -17,7 +17,9 @@ export class SecurityService {
     private readonly smsService: SMSService,
   ) {}
 
-  async triggerAlert(triggerAlertDto: TriggerAlertDto): Promise<void> {
+  async triggerAlert(
+    triggerAlertDto: TriggerAlertDto,
+  ): Promise<{ message: string }> {
     const user = await this.userService.findByUUC(triggerAlertDto.UUC);
     if (!user || user.PIN !== triggerAlertDto.PIN) {
       throw new BadRequestException('Invalid credentials');
@@ -48,6 +50,8 @@ export class SecurityService {
     };
 
     this.smsService.alertNeighbours(alertData, neighbours);
+
+    return { message: 'Successfully triggered alert!' };
   }
 
   async checkAlerts(UUC: string): Promise<User> {

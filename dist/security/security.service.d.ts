@@ -8,6 +8,8 @@ export declare class SecurityService {
     private readonly historyService;
     private readonly smsService;
     constructor(userService: UserService, historyService: HistoryService, smsService: SMSService);
-    triggerAlert(triggerAlertDto: TriggerAlertDto): Promise<void>;
+    triggerAlert(triggerAlertDto: TriggerAlertDto): Promise<{
+        message: string;
+    }>;
     checkAlerts(UUC: string): Promise<User>;
 }

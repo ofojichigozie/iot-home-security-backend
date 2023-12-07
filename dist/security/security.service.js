@@ -41,6 +41,7 @@ let SecurityService = class SecurityService {
             location: `${user.address}, ${user.city}`,
         };
         this.smsService.alertNeighbours(alertData, neighbours);
+        return { message: 'Successfully triggered alert!' };
     }
     async checkAlerts(UUC) {
         const user = await this.userService.findByUUC(UUC);
