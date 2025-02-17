@@ -49,7 +49,9 @@ export class SecurityService {
       location: `${user.address}, ${user.city}`,
     };
 
-    this.smsService.alertNeighbours(alertData, neighbours);
+    const neighboursPhoneNumbers = neighbours.map(neighbour => neighbour.phoneNumber);
+
+    this.smsService.alertNeighboursV2(alertData, neighboursPhoneNumbers);
 
     return { message: 'Successfully triggered alert!' };
   }

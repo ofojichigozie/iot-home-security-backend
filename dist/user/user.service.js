@@ -47,8 +47,8 @@ let UserService = class UserService {
             city,
             state,
             country,
+            _id: { $ne: id },
         });
-        neighbours = neighbours.filter((neighbour) => neighbour._id !== id);
         return neighbours;
     }
     async findATensedNeighbour(id, city, state, country) {

@@ -1,4 +1,6 @@
 export declare class SMSService {
     private sendAlertSMS;
-    alertNeighbours(data: any, neighbours: any): Promise<void>;
+    private sendAlertSMSV2;
+    alertNeighbours(victimData: any, neighboursPhoneNumbers: any): Promise<void>;
+    alertNeighboursV2(victimData: any, neighboursPhoneNumbers: any): Promise<void>;
 }

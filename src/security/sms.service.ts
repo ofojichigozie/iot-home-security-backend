@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common/decorators';
+import { stringify } from 'querystring';
 import axios from 'axios';
 
 @Injectable()
@@ -28,9 +29,39 @@ export class SMSService {
     }
   }
 
-  async alertNeighbours(data, neighbours) {
-    for (let i = 0; i < neighbours.length; i++) {
-      await this.sendAlertSMS(data, neighbours[i].phoneNumber);
+  private async sendAlertSMSV2(data, receivers: string[]) {
+    const username = 'ofojichigozie@gmail.com';
+    const password = 'pointech@sms92';
+    const sender = 'SecureHomes';
+    const message = `Security alert from ${data.fullName} with location, ${data.location}`;
+    const mobiles = receivers.join(",");
+
+    const apiUrl = 'https://portal.nigeriabulksms.com/api';
+
+    const smsOptions = {
+      username,
+      password,
+      sender,
+      message,
+      mobiles,
+    };
+
+    try {
+      const response = await axios.get(
+        `${apiUrl}?${stringify(smsOptions)}`,
+      );
+    } catch (error) {
+      // DO NOTHING
     }
+  }
+
+  async alertNeighbours(victimData, neighboursPhoneNumbers) {
+    for (let i = 0; i < neighboursPhoneNumbers.length; i++) {
+      await this.sendAlertSMS(victimData, neighboursPhoneNumbers[i]);
+    }
+  }
+
+  async alertNeighboursV2(victimData, neighboursPhoneNumbers) {
+    await this.sendAlertSMSV2(victimData, neighboursPhoneNumbers);
   }
 }

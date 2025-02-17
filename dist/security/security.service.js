@@ -40,7 +40,8 @@ let SecurityService = class SecurityService {
             fullName: `${user.firstName} ${user.lastName}`,
             location: `${user.address}, ${user.city}`,
         };
-        this.smsService.alertNeighbours(alertData, neighbours);
+        const neighboursPhoneNumbers = neighbours.map(neighbour => neighbour.phoneNumber);
+        this.smsService.alertNeighboursV2(alertData, neighboursPhoneNumbers);
         return { message: 'Successfully triggered alert!' };
     }
     async checkAlerts(UUC) {
